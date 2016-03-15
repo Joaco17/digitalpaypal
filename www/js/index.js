@@ -36,14 +36,16 @@ var app = {
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
   },
+
+
   // Update DOM on a Received Event
   receivedEvent: function(id) {
-    var parentElement = document.getElementById(id);
+    /*var parentElement = document.getElementById(id);
     var listeningElement = parentElement.querySelector('.listening');
     var receivedElement = parentElement.querySelector('.received');
 
     listeningElement.setAttribute('style', 'display:none;');
-    receivedElement.setAttribute('style', 'display:block;');
+    receivedElement.setAttribute('style', 'display:block;');*/
 
     console.log('Received Event: ' + id);
 
@@ -67,7 +69,7 @@ var app = {
   createPayment: function() {
     // for simplicity use predefined amount
     var paymentDetails = new PayPalPaymentDetails("50.00", "0.00", "0.00");
-    var payment = new PayPalPayment("50.00", "USD", "Awesome Sauce", "Sale",
+    var payment = new PayPalPayment("50.00", "€", "Digital Value", "Sale",
       paymentDetails);
     return payment;
   },

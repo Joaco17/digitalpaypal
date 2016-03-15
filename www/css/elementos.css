@@ -30,7 +30,7 @@
 .imgMenu{
 	width:15px;
 	height:15px;
-	margin-bottom: 15px;
+	margin-bottom: 2px;
 	margin-right: 5px;
 }
 
@@ -66,4 +66,9 @@
 	font-size: 15px;
 	margin:0 auto;
     display:block;
+}
+
+.listHeader{
+	height: 135px;
+	background-image: url("../img/header.png");
 }

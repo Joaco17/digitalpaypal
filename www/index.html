@@ -49,94 +49,117 @@
         
 
 
-        <script type="text/javascript">
-             $(window).ready(function() {
-              $("[data-toggle]").click(function() {
-                var toggle_el = $(this).data("toggle");
-                $(toggle_el).toggleClass("open-sidebar");
-              });
-                 
-            });
-             
-            $(".swipe-area").swipe({
-                swipeStatus:function(event, phase, direction, distance, duration, fingers)
-                    {
-                        if (phase=="move" && direction =="right") {
-                             $(".container").addClass("open-sidebar");
-                             return false;
-                        }
-                        if (phase=="move" && direction =="left") {
-                             $(".container").removeClass("open-sidebar");
-                             return false;
-                        }
-                    }
-            });
-        </script>
-
+        
  
 
       
 
 </head>
     <body>
-
-
-    <div class="container">
-    <div id="sidebar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Explore</a></li>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Sign Out</a></li>
-        </ul>
-    </div>
-    <div class="swipe-area"></div>
-     
-        <div data-role="page" id="paginaPrincipal" >
-    
-    <div data-role="header" data-position="fixed" data-tap-toggle="false"  class="altoFooter">
-        <h1><font size="4" face="verdana" color="#FFFFFF">Detalles</font></h1>
-        <a href="#" data-toggle=".container" id="sidebar-toggle">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-          </a>
-        <button style="height:30px;width:40px"  type="button" class="ui-btn-right" data-inline="true" data-mini="true" data-theme="b"> 
-            <img src="img/interface.png" class="imgMenu" align="center"/>  
-        </button>
-    </div>
-
-    <div class="main-content">
-
-        
-                <div id="deviceready" class="paypal">
-                    <button class="paypal"  id="buyNowBtn"> Buy Now !</button>
-                    <button class="paypal" id="buyInFutureBtn"> Pay in Future !</button>
-                    <button class="paypal" id="profileSharingBtn"> Profile Sharing !</button>
-                </div>
+            <div data-role="page" id="paginaPrincipal" >
             
+                <div data-role="header" data-position="fixed" data-tap-toggle="false"  class="altoFooter">
+                    <h1><font size="4" face="verdana" color="#FFFFFF">Payment</font></h1>
+                   <button style="height:40px;width:40px"  type="button" class="ui-btn-left" data-inline="true" onclick="toggle_sidebar()" data-mini="true" data-theme="b"> 
+                        <img src="img/three.png" class="imgMenu" align="center"/>  
+                    </button>
+                    <button style="height:40px;width:40px"  type="button" class="ui-btn-right" data-inline="true" data-mini="true" data-theme="b"> 
+                        <img src="img/interface.png" class="imgMenu" align="center"/>  
+                    </button>
+                </div>
+
+                <div class="main-content">
+
                 
-                <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="altoFooter">
-                    <div class="wrap">
-                        <div class="sub"><img src="img/home.png" class="imgFooter" /></div>
-                        <div class="sub"><img src="img/market.png" class="imgFooter" /></div>
-                        <div class="sub"><img src="img/home.png" class="imgFooter" /></div>
-                    </div>
+                        <div id="deviceready" class="paypal">
+                            <img src="img/paypal.png" class="paypal" id="buyNowBtn"/>
+                            <button class="paypal" id="buyInFutureBtn"> Pay in Future !</button>
+                            <button class="paypal" id="profileSharingBtn"> Profile Sharing !</button>
+                        </div>
+                    
+                        
+                        <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="altoFooter">
+                            <div class="wrap">
+                                <div class="sub"><img src="img/home.png" class="imgFooter" /></div>
+                                <div class="sub"><img src="img/market.png" class="imgFooter" /></div>
+                                <div class="sub"><img src="img/home.png" class="imgFooter" /></div>
+                            </div>
+                        </div>
                 </div>
         </div>
 
+         <div class="container">
+            <div class="sidebar" id="sidebar" style="position: fixed; display: inline-block; height: 100%; left: -240px; transition: all 0.3s ease-in-out;">
+                <ul>
+                    <li class="listHeader"></li>
+                        <li data-role="list-divider" style="font-size: 12px; color: #4d4d4d"> Proyecto </li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#"> Profile</a></li>
+                        <li><a href="#">Explore</a></li>            
+                    <li data-role="list-divider" style="font-size: 12px; color: #4d4d4d"> Configuracion </li>
+                        <li><a href="#">Preferences</a></li>                
+                        <li><a href="#"> Log out</a></li>
 
-        
-        <script src="jquery/jquery-1.12.1.js"></script>
-        <script src="jquery/jquery.mobile-1.4.5.min.js"></script>
+                </ul>
+            </div>
+            <div class="swipe-area" id="swipe" style="position: fixed; display: inline-block; height: 100%; left: 0px; transition: all 0.3s ease-in-out;"></div> 
+        </div>
+    
+    
+    <script src="jquery/jquery-1.12.1.js"></script>
+    <script src="jquery/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/classie.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>   
+    <script type="text/javascript" src="jquery.touchSwipe.js"></script>  
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/classie.js"></script>
-        <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+<script>
+        function toggle_sidebar(){
+            var sidebar = document.getElementById("sidebar");
+            var swiper = document.getElementById("swipe");
+            var fondo = document.getElementById("paginaPrincipal");
+           
+            console.log(sidebar.style.left);
+           
+            if(sidebar.style.left == "-240px"){
+                sidebar.style.left = "0px";
+                swiper.style.left = "+240px";
+                //fondo.background-color= "#939393";
+            }else{
+                sidebar.style.left = "-240px";
+                swiper.style.left = "0px";
+
+            }
+        }
+
+        $("swipe-area").swipe({
+            swipeStatus:function(event, phase, direction, distance, duration, fingers){
+                if (phase=="move" && direction =="right") {
+                    $(".container").addClass("open-sidebar");
+                    return false;
+                }
+              if (phase=="move" && direction =="left") {
+                    $(".container").removeClass("open-sidebar");
+                    return false;
+                }
+            }
+        }); 
+    </script>
 
 
+    <script type="text/javascript">
+        var sidebar = document.getElementById("sidebar");
+        var swiper = document.getElementById("swipe");
+        document.addEventListener("backbutton", onBackKeyDown, false);
+
+        function onBackKeyDown() {
+            if(sidebar.style.left == "0px"){
+                sidebar.style.left = "-240px";
+                swiper.style.left = "0px";
+            }
+        }
+    </script>
 
    <!-- <script>
         var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
